@@ -105,8 +105,10 @@ const GameField = () => {
 
         if (
           cellIsSnake(head.x, head.y) &&
-          head.x !== snakeCords[score - 1].x &&
-          head.y !== snakeCords[score - 1].y
+          !(
+            head.x === snakeCords[snakeCords.length - 1].x &&
+            head.y === snakeCords[snakeCords.length - 1].y
+          )
         ) {
           setIsGameOver(true);
         } else {
